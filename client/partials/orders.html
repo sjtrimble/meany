@@ -1,0 +1,42 @@
+<div>
+    <h2>Add New Order</h2>
+    <div class="errorMessage" ng-show="errorMessages.length > 0">
+        <p ng-repeat="error in errorMessages" ng-bind="error"></p>
+    </div>
+    <form ng-submit="create()">
+        <p>
+            <label>Customer: </label>
+            <select ng-model="newOrder.customer" ng-options="customer.name for customer in customers">
+            </select>
+        </p>
+        <p>
+            <label>Order: </label>
+            <select style="width: 64px;" ng-model="newOrder.quantity">
+                <option>1</option>
+                <option>5</option>
+                <option>100</option>
+            </select>
+            <select ng-model="newOrder.product" ng-options="product.name for product in products">
+            </select>
+        </p>
+        <p><input type="submit" value="Order"></p>
+    </form>
+</div>
+<hr>
+<div>
+    <input type="text" ng-model="ordersSearchText" placeholder="search name">
+    <table>
+        <tr>
+            <th>Customer Name</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Date</th>
+        </tr>
+        <tr ng-repeat="order in orders | filter: ordersSearchText">
+            <td ng-bind="order._customer.name"></td>
+            <td ng-bind="order._product.name"></td>
+            <td ng-bind="order.quantity"></td>
+            <td ng-bind="order.createdAt | date: 'MMM. dd, yyyy'"></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="sideContent">
+        <div class="filter">
+            <input type="text" ng-model="productSearchText" placeholder="search ...">
+            <button>Filter</button>
+        </div>
+
+        <div>
+            <h2>Add New Product</h2>
+            <form ng-submit="create()">
+                <p><label>Name:</label></p>
+                <p><input type="text" ng-model="newProduct.name"></p>
+                <p><label>Image(url):</label></p>
+                <p><input type="text" ng-model="newProduct.imageUrl"></p>
+                <p><label>Description:</label></p>
+                <p><textarea ng-model="newProduct.description"></textarea></p>
+                <p><label>Initial Quantity:</label></p>
+                <p> 
+                    <select style="width: 64px;" ng-model="newProduct.quantity">
+                        <option>1</option>
+                        <option>5</option>
+                        <option>100</option>
+                        <option>150</option>
+                    </select>
+                </p>
+                <p><input type="submit" value="Create"></p>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="mainContent">
+        <div class="productGroup" ng-repeat="product in products">
+            <img src="{{product.imageUrl}}">
+            <p ng-bind="product.name"></p>
+            <p>({{product.quantity}} left)</p>
+        </div>
+    </div>
+</div>
