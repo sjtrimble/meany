@@ -1,7 +1,6 @@
-<div ng-show="" class="messages">
+<div ng-if="messages" class="messages">
     <div>
         <p ng-bind="messages"></p>
-        <p>That was great, <span ng-bind-""></span>! Your score is <span ng-bind=""></span>.</p>
     </div>
 </div>
 
@@ -18,11 +17,10 @@
             <th>Score</th>
             <th>Percentage</th>
         </tr>
-        <tr ng-repeat="order in orders | filter: ordersSearchText">
-            <td ng-bind="order._customer.name"></td>
-            <td ng-bind="order._product.name"></td>
-            <td ng-bind="order.quantity"></td>
-            <td ng-bind="order.createdAt | date: 'MMM. dd, yyyy'"></td>
+        <tr ng-repeat="game in games | filter: searchText">
+            <td ng-bind="game.player"></td>
+            <td ng-bind="game.score"></td>
+            <td ng-bind="game.percentage"></td>
         </tr>
     </table>
 </div>

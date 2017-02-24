@@ -13,6 +13,12 @@ app.controller('gamesCtrl', function($scope, QuestionsFactory, UsersFactory, Gam
 
     console.log($scope.userLoggedIn)
 
+    var updateGames = function () {
+        GamesFactory.index(function(data) {
+            $scope.games = data;
+        });
+    };
+
     var loadQuestions = function() {
         QuestionsFactory.index(function(data) {
             console.log("data in load questions: ", data);
@@ -38,12 +44,17 @@ app.controller('gamesCtrl', function($scope, QuestionsFactory, UsersFactory, Gam
     loadQuestions();
 
     $scope.scoreGame = function() {
+        console.log("user: ", $scope.userLoggedIn)
+        $scope.newGame.player = $scope.userLoggedIn;
         console.log("new game: ", $scope.newGame)
-        // $scope.newGame.name = $scope.userLoggedIn;
+
         GamesFactory.scoreGame($scope.newGame, function(data) {
             console.log(data);
-            updateScores();
+            $scope.messages = ["That was great, " + $scope.userLoggedIn + "! Your score is "  + data.scare + "."]
         });
+        updateGames();
+        $location.url('/main');
+
     };
 
     // $scope.test = function() {

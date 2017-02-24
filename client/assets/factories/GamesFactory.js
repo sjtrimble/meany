@@ -4,7 +4,7 @@ app.factory('GamesFactory', ['$http', function($http) {
 
     factory.index = function(callback) {
 
-        console.log("CustomersFactory index function called");
+        console.log(" index function called");
 
         $http.get('/games')
         .then(function(res) {
@@ -12,8 +12,8 @@ app.factory('GamesFactory', ['$http', function($http) {
         });
     }
 
-    factory.scoreGame = function(callback) {
-        $http.post('/game')
+    factory.scoreGame = function(newGame, callback) {
+        $http.post('/game', newGame)
         .then(function(res) {
             if (typeof(callback) === 'function') {
                 callback(res.data);

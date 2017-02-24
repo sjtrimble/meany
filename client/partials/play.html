@@ -9,15 +9,24 @@
     <form name="gameResponse" novalidate ng-submit="scoreGame()">
         <div class="questionBox">
             <p ng-bind="questions[0].description"></p>
-                <p><input name="{{questions[0]._id}}" ng-model="newGame.response1" type="radio" value="1"> <span ng-bind="questions[0].correctAnswer"></span></p>
-                <p><input name="{{questions[0]._id}}" type="radio" ng-model="newGame.response1" value="0"> <span ng-bind="questions[0].otherAnswer1"></span></p>
-                <p><input name="{{question[0]._id}}" type="radio"  ng-model="newGame.response1" value="0"> <span ng-bind="questions[0].otherAnswer2"></span></p>
+            <p>
+                <input type="radio" name="{{questions[0]._id}}" ng-model="newGame.response1" value="1"/> 
+                <span ng-bind="questions[0].correctAnswer"></span>
+            </p>
+            <p>
+                <input type="radio" name="{{questions[0]._id}}" ng-model="newGame.response1" value="0"/> 
+                <span ng-bind="questions[0].otherAnswer1"></span>
+            </p>
+            <p>
+                <input type="radio" name="{{question[0]._id}}" ng-model="newGame.response1" value="0"/> 
+                <span ng-bind="questions[0].otherAnswer2"></span>
+             </p>
         </div>
         <div class="questionBox">
-                <p ng-bind="questions[1].description"></p>
-                <p><input name="{{questions[1]._id}}" ng-model="newGame.response2" type="radio" value="1"> <span ng-bind="questions[1].correctAnswer"></span></p>
-                <p><input name="{{questions[1]._id}}" type="radio" ng-model="newGame.response2" value="0"> <span ng-bind="questions[1].otherAnswer1"></span></p>
-                <p><input name="{{questions[1]._id}}" type="radio"  ng-model="newGame.response2" value="0"> <span ng-bind="questions[1].otherAnswer2"></span></p>
+            <p ng-bind="questions[1].description"></p>
+            <p><input name="{{questions[1]._id}}" ng-model="newGame.response2" type="radio" value="1"> <span ng-bind="questions[1].correctAnswer"></span></p>
+            <p><input name="{{questions[1]._id}}" type="radio" ng-model="newGame.response2" value="0"> <span ng-bind="questions[1].otherAnswer1"></span></p>
+            <p><input name="{{questions[1]._id}}" type="radio"  ng-model="newGame.response2" value="0"> <span ng-bind="questions[1].otherAnswer2"></span></p>
         </div>
         <div class="questionBox">
             <p ng-bind="questions[2].description"></p>
@@ -28,13 +37,6 @@
         <div>
             <button><a href="#!/main">Cancel</a></button>
             <input type="submit" value="Submit">
-            <!--<button ng-click="newGame.scoreGame()"></button>-->
         </div>
     </form>
-<!--
-    <form ng-submit="test()">
-        <input type="text" ng-model="newtest.name">
-        <input type="submit" value="test">
-    </form>-->
-
 </div>

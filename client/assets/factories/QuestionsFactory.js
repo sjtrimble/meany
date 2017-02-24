@@ -15,7 +15,7 @@ app.factory('QuestionsFactory', ['$http', function($http) {
         .then(function(res) {
             if (typeof(callback) === 'function') {
                 callback(res.data);
-                console.log("response from server received in factory: ", res.data);
+                console.log("response from server received in factory");
             };
         });
     };

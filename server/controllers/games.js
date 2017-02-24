@@ -19,19 +19,24 @@ module.exports = {
 
     create: function(req, res) {
 
-        console.log("creating", req.body);
-        res.json("game")
+        console.log("creating", req.body, "repsonse1: ", req.body.response1, "response2: ", req.body.response2, "response3: ", req.body.response3);
+        
+        let answer1 = Number(req.body.response1)
+        let answer2 = Number(req.body.response2)
+        let answer3 = Number(req.body.response3)
 
-        // var score = req.body.question_1 + req.body.question_2 + req.body.question_3;
-        // var percentage = (score / 3) * 100;
+        let score = answer1 + answer2 + answer3
+        var percentage = (score / 3) * 100;
 
-        // var game = new Game({name: req.body.name,score: score, percentage: percentage,})
-        // game.save(function (err) {
-        //     if(err){
-        //         console.log(err);
-        //         res.json({});
-        //     }
-        //     res.json({});
-        // })
+        console.log("score is: ", score, " and percentage is: ", percentage)
+
+        var game = new Game({player: req.body.player,score: score, percentage: percentage,})
+        game.save(function (err, savedGame) {
+            if(err){
+                console.log(err);
+                res.json(err);
+            }
+            res.json(savedGame);
+        })
 	}
 }
