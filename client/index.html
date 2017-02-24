@@ -1,27 +1,27 @@
 <html>
     <head>
-        <title>Mini MEAN Store</title>
+        <title>Meany Trivia</title>
         <link rel="stylesheet" href="main.css">
         <script src="angular/angular.js"></script>
         <script src="angular-route/angular-route.js"></script>
         <script src="./assets/app.js"></script>
-        <script src="/assets/factories/CustomersFactory.js"></script>
-        <script src="/assets/factories/ProductsFactory.js"></script>
-        <script src="/assets/factories/OrdersFactory.js"></script>
-        <script src="./assets/controllers/dashboardController.js"></script>
-        <script src="./assets/controllers/customersController.js"></script>
-        <script src="./assets/controllers/productsController.js"></script>
-        <script src="./assets/controllers/ordersController.js"></script>
-
+        <script src="/assets/factories/QuestionsFactory.js"></script>
+        <script src="/assets/factories/GamesFactory.js"></script>
+        <script src="/assets/factories/UsersFactory.js"></script>
+        <script src="./assets/controllers/mainCtrl.js"></script>
+        <script src="./assets/controllers/gamesCtrl.js"></script>
+        <script src="./assets/controllers/questionsCtrl.js"></script>
     </head>
+
     <body ng-app="app">
             <div id="header-bar">
                 <ul>
-                    <li><a href="#!/dashboard">Dashboard</a></li>
-                    <li><a href="#!/products">Products</a></li>
-                    <li><a href="#!/orders">Orders</a></li>
-                    <li><a href="#!/customers">Customers</a></li>
-                    <li><a href="#!/settings">Settings</a></li>
+                    <li><a href="#!/main">Home</a></li>
+                    <li><a href="#!/new_question">Add a Question</a></li>
+                </ul>
+                <ul ng-controller="mainCtrl">
+                    <li><a href="" ng-if="!userLoggedIn" ng-click="loginUser()">Login</a></li>
+                    <li><a href="" ng-if="userLoggedIn" ng-click="logoutUser()">Logout</a></li>
                 </ul>
             </div>
             <div class="fullContainer">

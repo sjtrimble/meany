@@ -1,0 +1,28 @@
+<div ng-show="" class="messages">
+    <div>
+        <p ng-bind="messages"></p>
+        <p>That was great, <span ng-bind-""></span>! Your score is <span ng-bind=""></span>.</p>
+    </div>
+</div>
+
+<div class="playPrompt">
+    <button style="width: 100px;"><a href="#!/lets_play">Play</a></button>
+    <p>Click the button above to start the trivia game.</p>
+</div>
+
+<div>
+    <p>Search: <input type="text" ng-model="searchText"></p>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Score</th>
+            <th>Percentage</th>
+        </tr>
+        <tr ng-repeat="order in orders | filter: ordersSearchText">
+            <td ng-bind="order._customer.name"></td>
+            <td ng-bind="order._product.name"></td>
+            <td ng-bind="order.quantity"></td>
+            <td ng-bind="order.createdAt | date: 'MMM. dd, yyyy'"></td>
+        </tr>
+    </table>
+</div>

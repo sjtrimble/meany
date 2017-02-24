@@ -2,23 +2,19 @@ var app = angular.module('app', ['ngRoute']);
 app.config(function ($routeProvider) {
     $routeProvider
     .when('/', {
-        redirectTo: '/dashboard'
+        redirectTo: '/main'
     })
-    .when('/dashboard', {
-        templateUrl: 'partials/dashboard.html',
-        controller: 'dashboardController'
+    .when('/main', {
+        templateUrl: 'partials/main.html',
+        controller: 'mainCtrl'
     })
-    .when('/orders', {
-        templateUrl: 'partials/orders.html',
-        controller: 'ordersController'
+    .when('/lets_play', {
+        templateUrl: 'partials/play.html',
+        controller: 'gamesCtrl'
     })
-    .when('/products', {
-        templateUrl: 'partials/products.html',
-        controller: 'productsController'
-    })
-    .when('/customers', {
-        templateUrl: 'partials/customers.html',
-        controller: 'customersController'
+    .when('/new_question', {
+        templateUrl: 'partials/newquestion.html',
+        controller: 'questionsCtrl'
     })
     .otherwise({
         redirectTo: '/'

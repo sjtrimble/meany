@@ -28,6 +28,16 @@ body {
     width: 30%;
 }
 
+.playPrompt {
+    display: flex;
+    flex-flow: column;
+    width: 50%;
+    margin: auto;
+    background-color:#e3e3e3;
+    padding: 20px;
+    align-items: center;
+}
+
 .errorMessage {
     color: red;
     font-weight: bold;
@@ -35,24 +45,6 @@ body {
 
 .filter {
     margin-bottom: 64px;
-}
-
-.productGroup {
-    display: flex;
-    flex-direction: column;
-    margin: 20px;
-    padding: 0px;
-    height: 150px;
-    text-align: center;
-}
-
-.productGroup img {
-    width: 100px;
-    height: 100px;
-}
-
-.productGroup > * {
-    margin-bottom: 0px;
 }
 
 select {
@@ -77,6 +69,11 @@ button, input[type="submit"] {
     text-decoration: none;
 }
 
+button a:link, a:visited {
+    text-decoration: none;
+    color: white;
+}
+
 input[type="text"] {
     border-radius: 5px;
     padding: 10px;
@@ -98,6 +95,9 @@ textarea {
 }
 
 #header-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     height: 32px;
     padding: 5px;
     background-color: #0080ff;
@@ -138,4 +138,11 @@ table {
 
 table th {
     text-align: left;
+}
+
+.questionBox {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid #AAA;
+    margin-bottom: 10px;
 }

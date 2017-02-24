@@ -1,0 +1,22 @@
+<p ng-if="!userLoggedIn">You are not logged in. Please refresh to log in!</p>
+
+<div ng-if="userLoggedIn">
+    <div>
+        <p>Hi <span ng-bind="userLoggedIn"></span>!</p>
+        <p>Choose an answer for each of the questions and submit the test once done.</p>
+        <p>Good luck!</p>
+    </div>
+    <form ng-submit="scoreGame()">
+        <div class="questionBox" ng-repeat="question in questions">
+            <p ng-bind="question.description">Question</p>
+                <p><input name="{{question._id}}" ng-model="newGame.response" type="radio" value="1"> <span ng-bind="question.correctAnswer"></span></p>
+                <p><input name="{{question._id}}" type="radio" ng-model="newGame.response" value="0"> <span ng-bind="question.otherAnswer1"></span></p>
+                <p><input name="{{question._id}}" type="radio"  ng-model="newGame.response" value="0"> <span ng-bind="question.otherAnswer2"></span></p>
+        </div>
+        <div>
+            <button><a href="#!/main">Cancel</a></button>
+            <input type="submit" value="Submit">
+            <button ng-click="scoreGame(newGame)"></button>
+        </div>
+    </form>
+</div>
