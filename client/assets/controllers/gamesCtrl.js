@@ -2,6 +2,7 @@ app.controller('gamesCtrl', function($scope, QuestionsFactory, UsersFactory, Gam
     console.log("games controller loading");
 
     $scope.questions = [];
+    $scope.newGame = {};
 
     var loginUser = function() {
 		UsersFactory.login(function(user) {
