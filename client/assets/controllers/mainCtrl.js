@@ -16,8 +16,9 @@ app.controller('mainCtrl', function($scope, GamesFactory, UsersFactory, Question
 	}
 
 	$scope.logoutUser = function() {
-		UserFactory.logout(function(user) {
+		UsersFactory.logout(function(user) {
 			$scope.userLoggedIn = user;
+			// $route.reload();
 		});
 	}
 
