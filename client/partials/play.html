@@ -6,7 +6,7 @@
         <p>Choose an answer for each of the questions and submit the test once done.</p>
         <p>Good luck!</p>
     </div>
-    <form ng-submit="scoreGame()">
+    <form name="gameResponse" ng-controller="gamesCtrl" novalidate ng-submit="scoreGame()">
         <div class="questionBox" ng-repeat="question in questions">
             <p ng-bind="question.description">Question</p>
                 <p><input name="{{question._id}}" ng-model="newGame.response" type="radio" value="1"> <span ng-bind="question.correctAnswer"></span></p>
@@ -16,7 +16,13 @@
         <div>
             <button><a href="#!/main">Cancel</a></button>
             <input type="submit" value="Submit">
-            <button ng-click="scoreGame(newGame)"></button>
+            <!--<button ng-click="newGame.scoreGame()"></button>-->
         </div>
     </form>
+<!--
+    <form ng-submit="test()">
+        <input type="text" ng-model="newtest.name">
+        <input type="submit" value="test">
+    </form>-->
+
 </div>

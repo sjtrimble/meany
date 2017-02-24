@@ -44,4 +44,8 @@ app.controller('gamesCtrl', function($scope, QuestionsFactory, UsersFactory, Gam
             updateScores();
         });
     };
+
+    // $scope.test = function() {
+    //     console.log("test successful", $scope.newtest.name)
+    // }
 });
